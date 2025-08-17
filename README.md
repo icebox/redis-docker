@@ -1,4 +1,4 @@
-# 🚀 Redis Boilerplate 
+# 🚀 Redis Docker Boilerplate 
 
 This repo provides a **turn-key Redis setup** for local development and QA, with support for:
 
