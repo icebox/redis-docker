@@ -1,0 +1,40 @@
+# Ignore Git
+.git
+.gitignore
+
+# Node / JS (if added later)
+node_modules
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# Logs
+*.log
+logs
+
+# Local env
+.env
+.env.*
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor junk
+.vscode
+.idea
+
+# Backups
+backups
+*.rdb
+*.aof
+*.tar
+*.gz
+*.zip
+
+# Don’t include README/docs into images
+README.md
+*.md
+
+# Docker-compose files (not needed inside images)
+docker-compose*.yml

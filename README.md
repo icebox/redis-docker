@@ -13,16 +13,20 @@ This repo provides a **turn-key Redis setup** for local development and QA, with
 ## 📂 File Structure
 
 ```
-redis-boilerplate/
-├── .env.example # Env variables (copy to .env)
-├── docker-compose.yml # Docker services
+.
+├── .env
+├── .gitignore
+├── .dockerignore
+├── docker-compose.yml
 ├── redis/
-│ └── redis.conf # Redis configuration
+│   └── redis.conf
 ├── scripts/
-│ ├── reset-redis.sh # Reset container + volumes
-│ ├── backup-redis.sh # Backup Redis to ./backups
-│ └── restore-redis.sh # Restore from backup
-└── backups/ # Created automatically, stores .rdb files
+│   ├── backup-redis.sh
+│   ├── reset-redis.sh
+│   └── restore-redis.sh
+└── backups/
+    └── .gitkeep
+
 ```
 
 
