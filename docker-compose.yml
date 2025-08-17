@@ -1,0 +1,33 @@
+#version: "3.9"
+
+services:
+  redis:
+    build:
+      context: ./redis
+      dockerfile: Dockerfile
+    container_name: ${REDIS_CONTAINER_NAME:-redis-dev}
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redisinsight:
+    image: redis/redisinsight:${REDISINSIGHT_VERSION:-latest}
+    container_name: ${REDISINSIGHT_CONTAINER_NAME:-redisinsight-dev}
+    ports:
+      - "${REDISINSIGHT_PORT:-8001}:5540"
+    volumes:
+      - redisinsight_data:/data
+    depends_on:
+      - redis
+
+volumes:
+  redis_data:
+  redisinsight_data:
